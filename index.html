@@ -485,7 +485,90 @@
     line-height: 1.4;
   }
   
-  /* ── Reveal animation (duplicate for safety) ── */
+
+  /* ── Mobile Responsive ── */
+  @media (max-width: 768px) {
+    /* Nav: hide links, show just logo + book button */
+    nav { padding: 1rem; }
+    .nav-logo { font-size: 1rem; }
+    .nav-cta { padding: 0.4rem 1rem; font-size: 0.75rem; }
+    
+    /* Hero */
+    .hero { min-height: 100vh; padding: 0 1rem; }
+    .hero-content { padding: 0 0.5rem; }
+    .hero-tag { font-size: 0.625rem; padding: 0.375rem 0.75rem; margin-bottom: 1rem; }
+    .hero h1 { font-size: clamp(2rem, 9vw, 3rem); margin-bottom: 1rem; }
+    .hero p { font-size: 0.9375rem; margin-bottom: 1.5rem; }
+    .hero-actions { flex-direction: column; width: 100%; }
+    .hero-actions a { text-align: center; width: 100%; padding: 0.875rem 1.5rem; font-size: 0.8125rem; }
+    .hero-scroll { display: none; }
+    
+    /* Stats */
+    .stats { padding: 2rem 1rem; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .stat-number { font-size: 1.75rem; }
+    .stat-label { font-size: 0.625rem; }
+    
+    /* Portfolio */
+    .portfolio { padding: 4rem 1rem; }
+    .section-header { margin-bottom: 2rem; }
+    .section-title { font-size: clamp(1.5rem, 6vw, 2.5rem); }
+    .section-subtitle { font-size: 0.9375rem; }
+    .portfolio-grid { gap: 0.625rem; }
+    .pi-large, .pi-medium, .pi-tall, .pi-wide, .pi-square {
+      grid-column: span 12;
+      aspect-ratio: 4/3;
+    }
+    
+    /* Reels */
+    .reels { padding: 4rem 1rem; }
+    .reels-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+    .reel-thumb { aspect-ratio: 9/16; }
+    .reel-info { padding: 0.625rem 0.75rem; }
+    .reel-info h4 { font-size: 0.875rem; }
+    .reel-info p { font-size: 0.6875rem; }
+    .reel-play { width: 40px; height: 40px; font-size: 0.875rem; }
+    
+    /* About */
+    .about { padding: 4rem 1rem; }
+    .about-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .about-image { aspect-ratio: 4/4; max-height: 400px; }
+    .about-text h2 { font-size: clamp(1.5rem, 6vw, 2rem); }
+    .about-text p { font-size: 0.9375rem; }
+    
+    /* Services */
+    .services { padding: 4rem 1rem; }
+    .services-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .service-card { padding: 1.5rem; }
+    .service-card h3 { font-size: 1.125rem; }
+    
+    /* Contact */
+    .contact { padding: 4rem 1rem; }
+    .contact h2 { font-size: clamp(1.5rem, 6vw, 2.5rem); }
+    .contact p { font-size: 1rem; }
+    .contact-buttons { flex-direction: column; width: 100%; }
+    .contact-buttons a { width: 100%; text-align: center; padding: 0.875rem 1.5rem; font-size: 0.8125rem; }
+    
+    /* Footer */
+    footer { padding: 2rem 1rem; }
+    .footer-logo { font-size: 1.25rem; }
+    .footer-links { flex-wrap: wrap; gap: 0.75rem; }
+    .footer-links a { font-size: 0.8125rem; }
+    .footer-credit { font-size: 0.6875rem; }
+  }
+  
+  /* ── Extra small mobile (≤480px) ── */
+  @media (max-width: 480px) {
+    .hero h1 { font-size: clamp(1.75rem, 8vw, 2.25rem); }
+    .stats-grid { gap: 1rem; }
+    .stat-number { font-size: 1.5rem; }
+    .reels-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .reel-thumb { aspect-ratio: 16/9; }
+    .reel-info h4 { font-size: 1rem; }
+    .reel-info p { font-size: 0.75rem; }
+    .footer-links { flex-direction: column; gap: 0.5rem; }
+  }
+
 </style>
 </head>
 <body>
@@ -501,7 +584,6 @@
   <div class="nav-links">
     <a href="#work">Work</a>
     <a href="#about">About</a>
-    <a href="#reels">Reels</a>
     <a href="#reels">Reels</a>
     <a href="#services">Services</a>
   </div>
@@ -761,7 +843,6 @@
   <div class="footer-links">
     <a href="#work">Work</a>
     <a href="#about">About</a>
-    <a href="#reels">Reels</a>
     <a href="#reels">Reels</a>
     <a href="#services">Services</a>
     <a href="#contact">Contact</a>
