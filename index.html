@@ -424,6 +424,125 @@
   .reveal.visible {
     opacity: 1; transform: translateY(0);
   }
+
+  /* ── Portfolio hover zoom ── */
+  .portfolio-item img {
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .portfolio-item:hover img {
+    transform: scale(1.08);
+  }
+
+  /* ── Hero subtle parallax glow ── */
+  .hero-bg::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 80% 20%, rgba(201, 168, 76, 0.06) 0%, transparent 60%);
+    animation: hero-glow 8s ease-in-out infinite alternate;
+  }
+  @keyframes hero-glow {
+    0% { opacity: 0.5; transform: scale(1); }
+    100% { opacity: 1; transform: scale(1.1); }
+  }
+
+  /* ── Nav fade-in ── */
+  nav {
+    animation: nav-slide 0.6s ease-out;
+  }
+  @keyframes nav-slide {
+    from { transform: translateY(-100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  /* ── Hero stagger ── */
+  .hero-tag, .hero h1, .hero p, .hero-actions {
+    animation: hero-fade 0.8s ease-out both;
+  }
+  .hero-tag { animation-delay: 0.1s; }
+  .hero h1 { animation-delay: 0.25s; }
+  .hero p { animation-delay: 0.4s; }
+  .hero-actions { animation-delay: 0.55s; }
+  @keyframes hero-fade {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── Stats counter ── */
+  .stat-item {
+    transition: transform 0.3s ease;
+  }
+  .stat-item:hover {
+    transform: translateY(-4px) scale(1.05);
+  }
+
+  /* ── Service card glow ── */
+  .service-card {
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(201, 168, 76, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .service-card:hover::before {
+    opacity: 1;
+  }
+  .service-card .service-icon {
+    transition: transform 0.3s ease;
+  }
+  .service-card:hover .service-icon {
+    transform: scale(1.15);
+  }
+
+  /* ── Floating WhatsApp Button ── */
+  .wa-float {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1.25rem 0.875rem 1rem;
+    background: #25D366;
+    border-radius: 100px;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    box-shadow: 0 4px 24px rgba(37, 211, 102, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: wa-enter 0.5s ease-out 1.5s both, wa-pulse 3s ease-in-out 2s infinite;
+  }
+  .wa-float:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 32px rgba(37, 211, 102, 0.55);
+  }
+  .wa-icon {
+    width: 28px; height: 28px; flex-shrink: 0;
+  }
+  .wa-label { white-space: nowrap; }
+  @keyframes wa-pulse {
+    0%, 100% { box-shadow: 0 4px 24px rgba(37, 211, 102, 0.4); }
+    50% { box-shadow: 0 4px 36px rgba(37, 211, 102, 0.65); }
+  }
+  @keyframes wa-enter {
+    from { transform: scale(0) translateY(20px); opacity: 0; }
+    to { transform: scale(1) translateY(0); opacity: 1; }
+  }
+  @media (max-width: 768px) {
+    .wa-float {
+      padding: 0.875rem;
+      bottom: 20px;
+      right: 20px;
+    }
+    .wa-label { display: none; }
+    .wa-icon { width: 32px; height: 32px; }
+  }
   
   /* ── Reels ── */
   .reels {
